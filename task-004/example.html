@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex</title>
+    <style>
+      * {
+        margin: unset;
+      }
+      body {
+        height: 100vh;
+      }
+      main {
+        display: flex;
+        height: 100%;
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", function () {
+        var $container = document.querySelector("main");
+        var $select = document.querySelector("select");
+        $select.addEventListener("change", function () {
+          var pair = {
+            "left-top": ["start", "start"],
+            "center-top": ["center", "start"],
+            "right-top": ["end", "start"],
+            "left-center": ["start", "center"],
+            "center-center": ["center", "center"],
+            "right-center": ["end", "center"],
+            "left-bottom": ["start", "end"],
+            "center-bottom": ["center", "end"],
+            "right-bottom": ["end", "end"],
+          }[$select.value];
+          var justify = pair[0];
+          var align = pair[1];
+          $container.style.justifyContent = justify;
+          $container.style.alignItems = align;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <select>
+      <option value="left-top">Left Top</option>
+      <option value="center-top">Center Top</option>
+      <option value="right-top">Right Top</option>
+      <option value="left-center">Left Center</option>
+      <option value="center-center">Center Center</option>
+      <option value="right-center">Right Center</option>
+      <option value="left-bottom">Left Bottom</option>
+      <option value="center-bottom">Center Bottom</option>
+      <option value="right-bottom">Right Bottom</option>
+    </select>
+    <main>
+      <div></div>
+    </main>
+  </body>
+</html>

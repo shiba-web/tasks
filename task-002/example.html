@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>计算器</title>
+    <style>
+      main {
+        width: 456px;
+        height: 768px;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", () => {
+        const input1 = document.getElementById("num-1");
+        const input2 = document.getElementById("num-2");
+        const result = document.getElementById("result");
+
+        document.getElementById("act-1").addEventListener("click", () => {
+          result.innerHTML = Number(input1.value) + Number(input2.value);
+        });
+        document.getElementById("act-2").addEventListener("click", () => {
+          result.innerHTML = Number(input1.value) - Number(input2.value);
+        });
+        document.getElementById("act-3").addEventListener("click", () => {
+          result.innerHTML = Number(input1.value) * Number(input2.value);
+        });
+        document.getElementById("act-4").addEventListener("click", () => {
+          result.innerHTML = Number(input1.value) / Number(input2.value);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <input id="num-1" type="number" />
+      <input id="num-2" type="number" />
+    </div>
+    <div>
+      <button id="act-1">+</button>
+      <button id="act-2">-</button>
+      <button id="act-3">*</button>
+      <button id="act-4">÷</button>
+    </div>
+    <div id="result"></div>
+  </body>
+</html>

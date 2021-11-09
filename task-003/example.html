@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>待办列表</title>
+    <script>
+      window.addEventListener("load", () => {
+        const $input = document.querySelector("input");
+        const $textarea = document.querySelector("textarea");
+        const $button = document.querySelector("button");
+        const $container = document.querySelector("#items");
+
+        $button.addEventListener("click", () => {
+          const title = $input.value;
+          const desc = $textarea.value;
+          if (!title || !desc) return;
+
+          const $item = document.createElement("div");
+          $item.className = "item";
+          // 偷懒了
+          $item.innerHTML = `
+            <div class="item-title">${title}</div>
+            <div class="item-desc">${desc}</div>
+            <hr />
+          `;
+          $container.append($item);
+
+          $input.value = "";
+          $textarea.value = "";
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="input">
+      <div>
+        <input type="text" placeholder="Title" />
+      </div>
+      <div>
+        <textarea placeholder="Description"></textarea>
+      </div>
+      <div>
+        <button>Add</button>
+      </div>
+    </div>
+
+    <hr />
+
+    <div id="items"></div>
+  </body>
+</html>
